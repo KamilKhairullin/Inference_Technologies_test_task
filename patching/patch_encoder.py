@@ -15,7 +15,8 @@ class PatchEncoder(layers.Layer):
 
     Attributes
     ----------
-    projection : 
+    projection : layers.Dense
+            layer for making projection of guven dimention.
 
     """
     def __init__(self, num_patches, projection_dim):

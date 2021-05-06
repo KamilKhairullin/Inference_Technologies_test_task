@@ -22,15 +22,19 @@ class VisionTransformer():
         Dimention of projection to make.
 
     transformer_layers : int 
-        Number of layers in transformer
+        Number of layers in transformer.
 
-    transformer_units : 
+    transformer_units : [int]
+        Size of transformed layers.
 
     num_heads : int
+        Number of attention heads.
 
     mlp_head_units : [int]
+        Size of the dense layers of the final classifier.
 
     projection_dim : int
+        Projection will be created of this size.
     
     """
     def __init__(self, num_classes, input_shape, patch_size, num_patches, transformer_layers, transformer_units, num_heads, mlp_head_units, projection_dim):
@@ -45,12 +49,30 @@ class VisionTransformer():
         self.projection_dim = projection_dim
         
     def mlp(self, x, hidden_units, dropout_rate):
+        """ Multilayer perception
+        Parameters
+        ----------
+        x : tf.Tensor
+        hidden_units : list
+        dropout_rate : float
+
+        Returns
+        -------
+        x : tf.Tensor 
+        
+        """
         for units in hidden_units:
             x = layers.Dense(units, activation=tf.nn.gelu)(x)
             x = layers.Dropout(dropout_rate)(x)
         return x
-
+   
     def create_model(self):
+        """Creates model to train on.
+
+        Returns
+        -------
+        model : Keras model.
+        """
         inputs = layers.Input(shape=self.input_shape)
         # Create patches.
         patches = Patcher(self.patch_size)(inputs)
@@ -84,4 +106,5 @@ class VisionTransformer():
         logits = layers.Dense(self.num_classes)(features)
         # Create the Keras model.
         model = keras.Model(inputs=inputs, outputs=logits)
+        print(type(model))
         return model
