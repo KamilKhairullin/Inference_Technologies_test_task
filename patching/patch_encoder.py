@@ -1,3 +1,6 @@
+from tensorflow.keras import layers
+import tensorflow as tf
+
 class PatchEncoder(layers.Layer):
     """Makes projection of a patch and adds 
     position embedding to projected vector.

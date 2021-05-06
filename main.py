@@ -1,3 +1,10 @@
+from transformers.vision_transformer import VisionTransformer
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+import tensorflow_addons as tfa
+
 def run_experiment(model):
     optimizer = tfa.optimizers.AdamW(
         learning_rate=learning_rate, weight_decay=weight_decay
@@ -36,6 +43,7 @@ def run_experiment(model):
 
     return history
 
+
 # Model / data parameters
 num_classes = 10
 input_shape = (28, 28, 1)
@@ -61,5 +69,6 @@ transformer_units = [
 transformer_layers = 8
 mlp_head_units = [2048, 1024]  # Size of the dense layers of the final classifier
 
-vit_classifier = create_vit_classifier()
-history = run_experiment(vit_classifier)
+vit_classifier = VisionTransformer(num_classes, input_shape, patch_size, num_patches, transformer_layers, transformer_units, num_heads, mlp_head_units, projection_dim)
+model = vit_classifier.create_model()
+history = run_experiment(model)

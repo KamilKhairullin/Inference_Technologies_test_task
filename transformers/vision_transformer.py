@@ -1,4 +1,8 @@
 from patching.patch_encoder import PatchEncoder
+from patching.patcher import Patcher
+from tensorflow.keras import layers
+import tensorflow as tf
+from tensorflow import keras
 
 class VisionTransformer():
     """Creates Vision Transformer model with given parameters
@@ -20,21 +24,26 @@ class VisionTransformer():
     transformer_layers : int 
         Number of layers in transformer
 
+    transformer_units : 
+
     num_heads : int
 
     mlp_head_units : [int]
 
+    projection_dim : int
+    
     """
-    def __init__(self, num_classes, input_shape, patch_size, num_patches, transformer_layers, num_heads, mlp_head_units):
+    def __init__(self, num_classes, input_shape, patch_size, num_patches, transformer_layers, transformer_units, num_heads, mlp_head_units, projection_dim):
         self.num_classes = num_classes
         self.input_shape = input_shape
         self.patch_size = patch_size
         self.num_patches = num_patches
         self.transformer_layers = transformer_layers
+        self.transformer_units = transformer_units
         self.num_heads = num_heads
         self.mlp_head_units = mlp_head_units
-        return self.create_model()
-
+        self.projection_dim = projection_dim
+        
     def mlp(self, x, hidden_units, dropout_rate):
         for units in hidden_units:
             x = layers.Dense(units, activation=tf.nn.gelu)(x)
@@ -61,7 +70,7 @@ class VisionTransformer():
             # Layer normalization 2.
             x3 = layers.LayerNormalization(epsilon=1e-6)(x2)
             # MLP.
-            x3 = mlp(x3, hidden_units=transformer_units, dropout_rate=0.1)
+            x3 = self.mlp(x3, hidden_units=self.transformer_units, dropout_rate=0.1)
             # Skip connection 2.
             encoded_patches = layers.Add()([x3, x2])
 
@@ -70,7 +79,7 @@ class VisionTransformer():
         representation = layers.Flatten()(representation)
         representation = layers.Dropout(0.5)(representation)
         # Add MLP.
-        features = mlp(representation, hidden_units=mlp_head_units, dropout_rate=0.5)
+        features = self.mlp(representation, hidden_units=self.mlp_head_units, dropout_rate=0.5)
         # Classify outputs.
         logits = layers.Dense(self.num_classes)(features)
         # Create the Keras model.

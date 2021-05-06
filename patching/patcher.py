@@ -1,3 +1,6 @@
+from tensorflow.keras import layers
+import tensorflow as tf
+
 class Patcher(layers.Layer):
     """Split image into patches.
 
