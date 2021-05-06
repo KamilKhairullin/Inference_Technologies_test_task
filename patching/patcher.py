@@ -8,21 +8,11 @@ class Patcher(layers.Layer):
 
     patch_size : int
         Size of the patch (NxN).
-
-    channels : int
-        Number of channels in image (1 for gray, 3 for RGB etc.).
-    
-    Attributes
-    ----------
-    num_patches : int
-        Number of patches
     """
-    def __init__(self, patch_size, channels = 1):
+    def __init__(self, patch_size):
         super(Patcher, self).__init__()
         self.patch_size = patch_size
-        self.num_patches = (image_size // patch_size) ** 2
-        self.channels = channels
-  
+        
     def call(self, images):
         """Calls image patching 
 
