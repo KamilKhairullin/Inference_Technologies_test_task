@@ -8,11 +8,11 @@ ENV PATH="VIRTUAL_ENV/bin:$PATH"
 WORKDIR /app
 ADD . /app
 
+RUN python3 --version
+RUN pip3 --version
+
 # Install dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port 
 EXPOSE 5000
-
-# Run the application:
-CMD ["python3.7", "main.py"]
