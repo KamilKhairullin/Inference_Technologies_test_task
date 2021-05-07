@@ -13,9 +13,6 @@ git clone https://github.com/KamilKhairullin/Visual-Transformer.git
 ```
 2.1 Скачать веса для моделей по [ссылке](https://drive.google.com/file/d/1buYfAOxozvR_zi-Yyn-KmPhgzMJumuUl/view?usp=sharing). Разархивировать и поместить их в папку с репозиторием. <br/>
 2.2 Скачать датасет [fruits 360](https://www.kaggle.com/moltean/fruits) и поместить в папку с репозиторием.
-После скачивания папка должна выглядеть так <br/>
- ![Screenshot 2021-05-07 at 23 16 12](https://user-images.githubusercontent.com/54369751/117503850-3e452a80-af8a-11eb-9cc9-715a663ca732.png)
- <br/>
 
 3. Создать файл .dockerignore в папке с репозиторием и вставить в него
 ```
@@ -39,7 +36,11 @@ coverage.xml
 vscode
 .md
 ```
-
+ <br/>
+Папка должна выглядеть так <br/>
+ ![Screenshot 2021-05-07 at 23 16 12](https://user-images.githubusercontent.com/54369751/117503850-3e452a80-af8a-11eb-9cc9-715a663ca732.png)
+ <br/>
+ 
 4. Открыть консоль в папке с репозиторием и забилдить docker image
 ```
 docker build -t name .
