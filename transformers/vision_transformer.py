@@ -69,6 +69,17 @@ class VisionTransformer():
     def create_model(self):
         """Creates model to train on.
 
+        Attributes
+        ----------
+        inputs : tf.layers.Input 
+        
+        patches : tf.Tensor
+            A 4-D Tensor of patched image.
+
+        encoded_patches : 
+            Embedding, which maps patch number to patch projection.
+
+        
         Returns
         -------
         model : Keras model.

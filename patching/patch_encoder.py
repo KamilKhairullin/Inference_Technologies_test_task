@@ -45,7 +45,7 @@ class PatchEncoder(layers.Layer):
         ----------
         positions : tf.range
             position of patch from 0 to (number of patches).
-
+        
         Returns
         -------
         encoded :  
