@@ -27,9 +27,10 @@ docker run  -it name
 <br/>
 После запуска контейнера должен появится Python SHELL <br/>
 
-![Screenshot 2021-05-07 at 22 27 00](https://user-images.githubusercontent.com/54369751/117500454-56667b00-af85-11eb-9f78-960283c39ddf.png)
+![Screenshot 2021-05-07 at 22 41 47](https://user-images.githubusercontent.com/54369751/117500513-6bdba500-af85-11eb-9def-0b2aceb99b7f.png)
 
 <br/>
+
 6.1 Запустить evaluate на претрейнед весах для датасета MNIST
 ```
 exec(open('load_mnist.py').read())
