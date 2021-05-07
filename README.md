@@ -47,3 +47,6 @@ exec(open('train_mnist.py').read())
 ```
 exec(open('train_fruits.py').read())
 ```
+<br/>
+References: <br/>
+[Keras. Image Classification with Vision Transformer.](https://keras.io/examples/vision/image_classification_with_vision_transformer/)
