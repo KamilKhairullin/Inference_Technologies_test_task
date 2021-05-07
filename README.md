@@ -52,4 +52,4 @@ exec(open('train_fruits.py').read())
 
 References:
 
-1. [Keras Image Classification with Vision Transformer](https://keras.io/examples/vision/image_classification_with_vision_transformer/)
+1. [Keras. Image Classification with Vision Transformer](https://keras.io/examples/vision/image_classification_with_vision_transformer/)
