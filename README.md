@@ -16,7 +16,9 @@ git clone https://github.com/KamilKhairullin/Visual-Transformer.git
 После скачивания папка должна выглядеть так <br/>
 ![Screenshot 2021-05-07 at 22 27 00](https://user-images.githubusercontent.com/54369751/117499113-6da46900-af83-11eb-926a-33379e22a774.png)
  <br/>
- 
+ ![Screenshot 2021-05-07 at 23 16 12](https://user-images.githubusercontent.com/54369751/117503850-3e452a80-af8a-11eb-9cc9-715a663ca732.png)
+ <br/>
+
 3. Создать файл .dockerignore в папке с репозиторием и вставить в него
 ```
 __pycache__
