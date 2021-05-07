@@ -106,5 +106,4 @@ class VisionTransformer():
         logits = layers.Dense(self.num_classes)(features)
         # Create the Keras model.
         model = keras.Model(inputs=inputs, outputs=logits)
-        print(type(model))
         return model

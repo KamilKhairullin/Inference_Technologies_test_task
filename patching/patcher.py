@@ -6,9 +6,6 @@ class Patcher(layers.Layer):
 
     Parameters
     ----------
-    image_size : int
-        Size of the image (NxN).
-
     patch_size : int
         Size of the patch (NxN).
     """
@@ -49,7 +46,7 @@ class Patcher(layers.Layer):
         Returns
         -------
         patches : tf.Tensor
-            A 4-D Tensor
+            A 4-D Tensor of patched image.
         """
         batch_size = tf.shape(images)[0]
         patches = tf.image.extract_patches(
@@ -62,3 +59,16 @@ class Patcher(layers.Layer):
         patch_dims = patches.shape[-1]
         patches = tf.reshape(patches, [batch_size, -1, patch_dims])
         return patches
+
+    def get_config(self):
+        """ To be able to save our model, we need to override this method in custom layers like this.
+
+        Returns
+        -------
+        config with added __init__ attributes of this class.
+        """
+        config = super().get_config().copy()
+        config.update({
+            'patch_size': self.patch_size 
+        })
+        return config
