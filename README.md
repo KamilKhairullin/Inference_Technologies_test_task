@@ -1,6 +1,10 @@
 # Тестовое задание Computer Vision Engineer Inference Technologies
 Камиль Хайруллин (Kamil Khairullin)
 
+## Структура проекта
+- **patching/** : Все, что связано с патчингом картинки находится здесь
+- **transformers/** : Модель находится здесь.
+- **train_*.py load_*.py** : Тренировка и загрузка pretrained весов
 ## Как запустить проект.
 
 1. Клонировать реопзиторий 
