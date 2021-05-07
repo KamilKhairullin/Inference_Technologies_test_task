@@ -24,13 +24,23 @@ docker build -t name .
 ```
 docker run  -it name
 ```
-
+<br/>
+После запуска контейнера должен появится Python SHELL <br/>
+![Screenshot 2021-05-07 at 22 39 09](https://user-images.githubusercontent.com/54369751/117500270-0d162b80-af85-11eb-9604-1142b27a5e52.png)
+<br/>
 6.1 Запустить evaluate на претрейнед весах для датасета MNIST
 ```
 exec(open('load_mnist.py').read())
 ```
-6.1 Запустить evaluate на претрейнед весах для датасета Fruits 360
+6.2 Запустить evaluate на претрейнед весах для датасета Fruits 360
 ```
 exec(open('load_fruits.py').read())
 ```
-
+6.3 Запустить training для датасета MNIST
+```
+exec(open('train_mnist.py').read())
+```
+6.4 Запустить training для датасета Fruits 360
+```
+exec(open('train_fruits.py').read())
+```
