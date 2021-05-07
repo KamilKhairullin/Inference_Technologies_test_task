@@ -38,7 +38,7 @@ vscode
 ```
  <br/>
 Папка должна выглядеть так <br/>
- ![Screenshot 2021-05-07 at 23 16 12](https://user-images.githubusercontent.com/54369751/117503850-3e452a80-af8a-11eb-9cc9-715a663ca732.png)
+![Screenshot 2021-05-07 at 23 16 12](https://user-images.githubusercontent.com/54369751/117503850-3e452a80-af8a-11eb-9cc9-715a663ca732.png)
  <br/>
  
 4. Открыть консоль в папке с репозиторием и забилдить docker image
