@@ -1,4 +1,4 @@
-# Тестовое задание Computer Vision Engineer Inference Technologies
+# Тестовое задание: Computer Vision Engineer в Inference Technologies. Имплементация Visual Transformer
 Камиль Хайруллин (Kamil Khairullin)
 
 ## Структура проекта
